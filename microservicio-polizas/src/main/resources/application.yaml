@@ -1,0 +1,22 @@
+spring:
+  application:
+    name: microservicio-polizas
+
+  datasource:
+    url: jdbc:sqlserver://MSA4333:1433;databaseName=AseguradoraDB;encrypt=true;trustServerCertificate=true
+    username: sa
+    password: miClaveSecreta
+    driver-class-name: com.microsoft.sqlserver.jdbc.SQLServerDriver
+
+  jpa:
+    hibernate:
+      # En entorno de desarrollo usar 'update' para crear/actualizar el esquema automáticamente.
+      # En producción no recomendado; preferir migraciones (Flyway/Liquibase) o validación.
+      ddl-auto: update # cambiar a 'create' si quieres recrear tablas en cada arranque
+    show-sql: true
+    open-in-view: false
+    defer-datasource-initialization: true
+
+  sql:
+    init:
+      mode: always
