@@ -190,6 +190,15 @@ El sistema permite a una aseguradora gestionar de manera centralizada:
 | Maven | 3.8+ *(o usar el wrapper `mvnw` incluido)* |
 | SQL Server | 2019+ *(o SQL Server Express / Docker)* |
 
+## Pruebas unitarias y de integración incluidas. Para correrlas:
+No es necesario base de datos
+- Controlador 100%
+- Servicio 90%
+
+.\mvnw.cmd test -Dtest=PolizaSaludServiceTest,PolizaVidaServiceTest,ClienteServiceTest,ClienteControllerTest,PolizasSaludControllerTest,PolizasVidaControllerTest,PolizasVehiculoControllerTest -Dspring.datasource.url=jdbc:h2:mem:testdb -Dspring.jpa.hibernate.ddl-auto=none -Dspring.sql.init.mode=never
+
+Reporte JaCoCo → abrir en: target/site/jacoco/index.html
+
 ### Paso 1 — Levantar SQL Server con Docker *(opcional)*
 
 Si no tienes SQL Server instalado localmente, puedes levantar una instancia con Docker:
